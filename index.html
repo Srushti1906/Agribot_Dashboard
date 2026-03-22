@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AgriBot Dashboard</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- Leaflet Map -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+</head>
+
+<body>
+
+<div class="container">
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <h2><i class="ri-leaf-line"></i> AgriBot</h2>
+
+    <ul>
+      <li class="active" onclick="showSection(event,'overview')">
+        <i class="ri-home-4-line"></i> Overview
+      </li>
+      <li onclick="showSection(event,'analytics')">
+        <i class="ri-bar-chart-line"></i> Analytics
+      </li>
+      <li onclick="showSection(event,'map')">
+        <i class="ri-map-pin-line"></i> Map
+      </li>
+    </ul>
+  </div>
+
+  <!-- Main -->
+  <div class="main">
+
+    <!-- OVERVIEW -->
+    <div id="overview" class="section active">
+      <h1>Farm Overview</h1>
+
+      <div class="cards">
+        <div class="card"><i class="ri-temp-hot-line"></i><p>Temperature</p><h2 id="temp">--</h2></div>
+        <div class="card"><i class="ri-water-flash-line"></i><p>Humidity</p><h2 id="hum">--</h2></div>
+        <div class="card"><i class="ri-plant-line"></i><p>Soil</p><h2 id="soil">--</h2></div>
+        <div class="card"><i class="ri-rainy-line"></i><p>Rain</p><h2 id="rain">--</h2></div>
+        <div class="card"><i class="ri-ruler-line"></i><p>Ultrasonic</p><h2 id="ultra">--</h2></div>
+        <div class="card"><i class="ri-walk-line"></i><p>Motion</p><h2 id="motion">--</h2></div>
+        <div class="card"><i class="ri-sun-line"></i><p>LDR</p><h2 id="ldr">--</h2></div>
+      </div>
+    </div>
+
+    <!-- ANALYTICS -->
+    <div id="analytics" class="section">
+      <h1>Analytics</h1>
+
+      <div class="analytics-grid">
+        <div class="analytics-card">
+          <h3>Temperature Trend</h3>
+          <canvas id="tempChart"></canvas>
+        </div>
+
+        <div class="analytics-card">
+          <h3>Humidity Trend</h3>
+          <canvas id="humChart"></canvas>
+        </div>
+
+        <div class="analytics-card">
+          <h3>Soil Moisture</h3>
+          <canvas id="soilChart"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <!-- MAP -->
+    <div id="map" class="section">
+      <h1>Farm Location</h1>
+      <div id="mapView"></div>
+    </div>
+
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
